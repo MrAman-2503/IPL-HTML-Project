@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Georgia', serif;
+    background-color: #1a1a40; /* Royal dark blue */
+    color: #f0e6d2; /* Soft gold */
+    line-height: 1.6;
+    font-size: 16px;
+  }
