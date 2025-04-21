@@ -3,48 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPL Team and their informations</title>
+    <title>IPL-Teams</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            color: rgb(155, 24, 24);
+        }
+        header h1{
+          font-size: 1.85rem;
+          font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            color: rgb(0, 0, 0);
+        }
+        .team-logo {
+            height: 50px;
+            margin: 0 1rem;
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .team-card {
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .team-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .team-logo {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+        .team-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #ffffff; /* Default text color */
+        }
+        .team-details {
+            text-align: center;
+        }
+         /* Transition Section Styles */
+         .transition-container {
+            width: 100%;
+            overflow: hidden;
+            background-color: #99e47b;
+            padding: 0.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .transition-text {
+            white-space: nowrap;
+            animation: scroll 10s linear infinite;
+            color: #333;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        body {
+            /* Updated background-color for a more modern look */
+            background: linear-gradient(135deg, #d3738b, #e4e9ee); /* Darker, more sophisticated gradient */
+            color: #ecf0f1; /* Light text for better contrast on dark background */
+        }
+        .container {
+            /* Refined container style */
+            background-color: rgba(255, 255, 255, 0.05); /* Glassmorphism effect - more transparent */
+            border-radius: 1rem; /* Slightly more rounded corners */
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); /* Deeper shadow */
+            backdrop-filter: blur(10px); /* Add blur to the background, stronger blur */
+            margin-top: 3rem; /* Increased top margin for better spacing */
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Add a border */
+        }
+        .container:hover {
+            background-color: rgba(255, 255, 255, 0.08); /* Slightly lighter on hover */
+            box-shadow: 0 0.75rem 1.25rem rgba(0, 0, 0, 0.25); /* Increased shadow on hover */
+        }
+        header h1, footer p {
+            /* Ensure heading and footer text are bright */
+            color: #ffffff;
+            text-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.5);
+        }
+        .transition-container {
+            background-color: rgba(0, 0, 0, 0.05); /* Darker transition container */
+        }
+
+        .transition-text {
+            color: #000000; /* Light text for transition text */
+            text-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            text-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.5);
+            transition: color 0.3s ease;
+        }
+        .nav-links li a:hover {
+            color: #ffdb58;
+        }
+    </style>
 </head>
-<body>
-    <h1>IPL- INDIAN PREMIER LEAUGE</h1>
-    <br>
-    <img src="https://static.india.com/wp-content/uploads/2020/08/IPL-Logo.jpg?impolicy=Medium_Resize&w=1200&h=800" alt="ipl logo"width="300">
-   
-    <p>The Indian Premier League is a professional Twenty20 cricket league in India organised by the Board of Control for Cricket in India. Founded in 2007, the league features ten state or city-based franchise teams. The IPL is the most popular and richest cricket league in the world and is held between March and May.</p>
+<header id="csk-header">
+    <div class="header-content">
+        <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/en/thumb/8/84/Indian_Premier_League_Official_Logo.svg/250px-Indian_Premier_League_Official_Logo.svg.png" alt="IPL LOGO">
+        <h1>Indian Premier League</h1>
+    </div>
+</header>
+<div class="nav-container">
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Teams</a></li>
+            <li><a href="#">Schedule</a></li>
+            <li><a href="#">Points Table</a></li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+    </nav>
+</div>
+<div class="transition-container">
+    <p class="transition-text">
+        Welcome to the ultimate destination for IPL team information.
+        Select your favorite team to dive into their world!
+    </p>
+</div>
 
-    <ol>
-        <li>
-           <a href="csk.html">Chennai Super Kings</a>
-        </li>
-        <li>
-            <a href="MI.html">Mumbai Indians</a>
-        </li>
-        <li>
-            <a href="RCB.html">Royal Challenges Banglore</a>
-        </li>
-        <li>
-            <a href="KKR.html">Kolkata Knight Riders</a>
-        </li>
-        <li>
-            <a href="RR.html">Rajasthan Royals</a>
-        </li>
-        <li>
-            <a href="LSG.html">Lukhnow Supergiants</a>
-        </li>
-        <li>
-            <a href="DC.html">Delhi Capitals</a>
-        </li>
-        <li>
-            <a href="PBXII.html">Kings XI Punjab</a>
-        </li>
-        <li>
-            <a href="GT.html">Gujrat Titans</a>
-        </li>
-        <li>
-            <a href="SRH.html">Sunrises Hydrabad</a>
-        </li>
-    </ol>
+<main class="container mx-auto mt-8 p-4">
+    <p class="text-center text-lg text-gray-700">
+        # Note :To See the information of your favorite team tap on thier name 
+    </p>
 
-
+<body class="bg-gray-100">
+    <div class="container">
+        <h1 class="text-3xl font-semibold text-gray-800 text-center mb-6">IPL-Indian Premier Leauge</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div class="team-card bg-yellow-500">
+                <div class="team-details">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2b/Chennai_Super_Kings_Logo.svg/250px-Chennai_Super_Kings_Logo.svg.png" alt="CSK logo"width="100">
+            <h2 class="team-name"><a href="csk.html">Chennai Super Kings</a></h2>
+                    
+                </div>
+            </div>
+            <div class="team-card bg-blue-600">
+                <div class="team-details">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Mumbai_Indians_Logo.svg/1200px-Mumbai_Indians_Logo.svg.png" alt="Mumbai Indians Logo" class="team-logo">
+                    <h2 class="team-name"><a href="MI.html">Mumbai Indians</a></h2>
+                </div>
+            </div>
+            <div class="team-card bg-purple-700">
+                <div class="team-details">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/Kolkata_Knight_Riders_Logo.svg/175px-Kolkata_Knight_Riders_Logo.svg.png" alt="Kolkata Knight Riders Logo" class="team-logo">
+                    <h2 class="team-name"><a href="KKR.html">Kolkata Knight Riders</a></h2>
+                </div>
+            </div>
+            <div class="team-card bg-red-600">
+                <div class="team-details">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/Royal_Challengers_Bengaluru_Logo.svg/250px-Royal_Challengers_Bengaluru_Logo.svg.png" alt="Royal Challengers Bangalore Logo" class="team-logo">
+                    <h2 class="team-name"><a href="RCB.html">Royal Challengers Bangalore</a></h2>
+                </div>
+            </div>
+            <div class="team-card bg-blue-800">
+                <div class="team-details">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2f/Delhi_Capitals.svg/250px-Delhi_Capitals.svg.png" alt="Delhi Capitals Logo" class="team-logo">
+                    <h2 class="team-name"><a href="DC.html">Delhi Capitals</a></h2>
+                </div>
+            </div>
+            <div class="team-card bg-orange-400">
+                <div class="team-details">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/51/Sunrisers_Hyderabad_Logo.svg/330px-Sunrisers_Hyderabad_Logo.svg.png" alt="Sunrisers Hyderabad Logo" class="team-logo">
+                    <h2 class="team-name"><a href="SRH.html">Sunrisers Hyderabad</a></h2>
+                </div>
+            </div>
+            <div class="team-card bg-pink-600">
+                <div class="team-details">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg/230px-This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg.png" alt="Rajasthan Royals Logo" class="team-logo">
+                    <h2 class="team-name"><a href="RR.html">Rajasthan Royals</a></h2>
+                </div>
+            </div>
+            <div class="team-card bg-red-700">
+                <div class="team-details">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/Punjab_Kings_Logo.svg/1200px-Punjab_Kings_Logo.svg.png" alt="Punjab Kings Logo" class="team-logo">
+                    <h2 class="team-name"><a href="PBXII.html">Punjab Kings</a></h2>
+                </div>
+               </div>
+               <div class="team-card bg-blue-600">
+                <div class="team-details">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/Lucknow_Super_Giants_IPL_Logo.svg/250px-Lucknow_Super_Giants_IPL_Logo.svg.png" alt="Mumbai Indians Logo" class="team-logo">
+                    <h2 class="team-name"><a href="LSG.html">Luckhnow Luper Giants</a></h2>
+                </div>
+        </div>
+    </div>
+    <footer id="csk-footer">
+        <p>© 2024 IPL Teams. All rights reserved.</p>
+    </footer>
 </body>
 </html>

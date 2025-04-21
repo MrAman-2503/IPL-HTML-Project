@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Challengers Bangalore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.5s ease;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.5s ease, box-shadow 0.3s ease;
+        }
+        .container:hover {
+            background-color: #f7f7f7;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #e0e0e0;
+            transition: border-bottom 0.3s ease;
+        }
+        header:hover {
+            border-bottom: 1px solid #ccc;
+        }
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+        header h1:hover {
+            color: #007bff;
+        }
+        header p {
+            font-size: 1.1rem;
+            color: #555;
+            transition: color 0.3s ease;
+        }
+        header p:hover {
+            color: #222;
+        }
+        .team-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .team-logo {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+            margin-right: 20px;
+            transition: transform 0.3s ease;
+        }
+        .team-logo:hover {
+            transform: scale(1.1);
+        }
+        .info-content {
+            flex: 1;
+        }
+        .info-content h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #007bff;
+            transition: color 0.3s ease;
+        }
+        .info-content h2:hover {
+            color: #0056b3;
+        }
+        .info-content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 10px;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+        .info-content p:hover {
+            color: #222;
+        }
+        .achievements {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            transition: background-color 0.3s ease;
+        }
+        .achievements:hover {
+            background-color: #e9ecef;
+        }
+        .achievements h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #28a745;
+            transition: color 0.3s ease;
+        }
+        .achievements h3:hover {
+            color: #218838;
+        }
+        .achievements ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .achievements li {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: #444;
+            transition: color 0.3s ease;
+        }
+        .achievements li:hover {
+            color: #333;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+            color: #666;
+            transition: color 0.3s ease, border-top 0.3s ease;
+        }
+        footer:hover {
+            color: #333;
+            border-top: 1px solid #ccc;
+        }
+
+        /* New styles for image slider */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .slider img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .slider-nav {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            padding: 5px;
+            border-radius: 15px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .slider-nav button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #bbb;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            outline: none;
+        }
+
+        .slider-nav button:hover {
+            background-color: #555;
+            transform: scale(1.2);
+        }
+
+        .slider-nav button.active {
+            background-color: #007bff;
+            transform: scale(1.4);
+        }
+
+        .team-info .owner-info{
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+        }
+        .team-info .owner-info h4{
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #1a202c;
+            margin-bottom: 10px;
+        }
+
+        /* CSS Animation for Slider */
+        @keyframes slide {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slider img {
+            animation: slide 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Royal Challengers Bangalore</h1>
+            <p>Play Bold!</p>
+        </header>
+        <div class="team-info">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/Royal_Challengers_Bengaluru_Logo.svg/250px-Royal_Challengers_Bengaluru_Logo.svg.png" alt="Royal Challengers Bangalore Logo" class="team-logo">
+                 <div class="info-content">
+                <h2>About Royal Challengers Bangalore</h2>
+                <p>The Royal Challengers Bangalore (RCB) are a franchise cricket team based in Bangalore, Karnataka, India. They play in the Indian Premier League (IPL). Founded in 2008, the team is owned by United Spirits Ltd.</p>
+                <p>RCB is known for its star-studded lineups and exciting T20 cricket.  They are one of the most popular teams in the IPL with a large fan base.</p>
+                <div class="owner-info">
+                    <h4>Team Information</h4>
+                    <p>Owner: United Spirits Ltd.</p>
+                    <p>Foundation Year: 2008</p>
+                </div>
+            </div>
+        </div>
+        <div class="achievements">
+            <h3>Achievements</h3>
+            <ul>
+                <li>IPL Finals: 2009, 2011, 2016</li>
+                <li>Playoff Appearances: 2010, 2011, 2015, 2016, 2020, 2021, 2022</li>
+            </ul>
+        </div>
+        <div class="slider-container">
+            <div class="slider">
+                <img src="https://staticg.sportskeeda.com/wp-content/uploads/2012/05/rcb-vs-dd.jpg" alt="RCB vs DD 2012">
+                <img src="https://i.pinimg.com/736x/b8/52/65/b8526551b9499557459247d9f5854992.jpg" alt="RCB team celebration">
+                <img src="https://www.sportsunfold.com/wp-content/uploads/2021/05/Virat-Kohli-Anushka-Sharma-cheering-for-RCB.jpg" alt="Virat Kohli with Anushka Sharma">
+                <img src="https://www.mykhel.com/img/2024/05/rcb-players-celebrating-after-qualifying-to-ipl-2022-playoffs-1653733972.jpg" alt="RCB 2022 playoffs qualification">
+                <img src="https://pbs.twimg.com/media/FQUZ8j_aUAA8Tvu.jpg" alt="RCB vs RR 2022">
+            </div>
+            <div class="slider-nav">
+                <button></button>
+                <button></button>
+                
+            </div>
+        </div>
+        <footer>
+            <p>© 2024 Royal Challengers Bangalore. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>
+        const slider = document.querySelector('.slider');
+        const navButtons = document.querySelectorAll('.slider-nav button');
+        const images = document.querySelectorAll('.slider img');
+        let currentIndex = 0;
+
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+            navButtons.forEach((button, index) => {
+                button.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateSlider();
+        }
+
+        navButtons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                currentIndex = index;
+                updateSlider();
+            });
+        });
+
+        let intervalId = setInterval(nextSlide, 5000);
+
+        slider.addEventListener('mouseenter', () => {
+            clearInterval(intervalId);
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            intervalId = setInterval(nextSlide, 5000);
+        });
+
+        updateSlider();
+    </script>
+</body>
+</html>
