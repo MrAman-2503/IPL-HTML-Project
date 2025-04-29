@@ -141,6 +141,90 @@
             color: #333;
             border-top: 1px solid #ccc;
         }
+          /* New styles for image slider */
+          .slider-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .slider img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .slider-nav {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            padding: 5px;
+            border-radius: 15px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .slider-nav button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #bbb;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            outline: none;
+        }
+
+        .slider-nav button:hover {
+            background-color: #555;
+            transform: scale(1.2);
+        }
+
+        .slider-nav button.active {
+            background-color: #007bff;
+            transform: scale(1.4);
+        }
+
+        .team-info .owner-info{
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+        }
+        .team-info .owner-info h4{
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #1a202c;
+            margin-bottom: 10px;
+        }
+
+        /* CSS Animation for Slider */
+        @keyframes slide {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slider img {
+            animation: slide 0.5s ease-out;
+        }
     </style>
 </head>
 <body>
@@ -166,9 +250,69 @@
                 <li>Most appearances in IPL finals: 10</li>
             </ul>
         </div>
+        <div class="slider-container">
+            <div class="slider">
+                <img src="https://images.news18.com/ibnlive/uploads/2024/03/gitso1ebmaafp13-2024-03-228db3de2ec4dd66ba6bc128f1503b3f.jpg" alt="CSK First IPL-CUP">
+                <img src="https://pbs.twimg.com/media/FT0Pi4LX0AEpljV.jpg" alt="Thaala holding 2nd cup">
+                <img src="https://preview.redd.it/yesterday-ms-dhoni-completed-16-years-with-chennai-super-v0-rzx71fwl3zjc1.png?auto=webp&s=bee3b3502d23fcd3b6dcb5f7a78abed2edc7b75a" alt="Achievements">
+                <img src="https://media.assettype.com/englishkesari%2F2024-11-14%2Fb133amhb%2Fcvbnm.jpg?w=480&auto=format%2Ccompress&fit=max" alt="CSK team huddle">
+                <img src="https://img1.hotstarext.com/image/upload/f_auto/sources/r1/cms/prod/6368/1742488016368-i" alt="MI-CSK Rivalry">
+            </div>
+            <div class="slider-nav">
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+            </div>
+        </div>
         <footer>
             <p>© 2024 Chennai Super Kings. All rights reserved.</p>
         </footer>
     </div>
+    <script>
+        const slider = document.querySelector('.slider');
+        const navButtons = document.querySelectorAll('.slider-nav button');
+        const images = document.querySelectorAll('.slider img');
+        let currentIndex = 0;
+
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+            navButtons.forEach((button, index) => {
+                button.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateSlider();
+        }
+
+        navButtons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                currentIndex = index;
+                updateSlider();
+            });
+        });
+
+        let intervalId = setInterval(nextSlide, 5000);
+
+        slider.addEventListener('mouseenter', () => {
+            clearInterval(intervalId);
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            intervalId = setInterval(nextSlide, 5000);
+        });
+
+        updateSlider();
+    </script>
 </body>
 </html>
+
+

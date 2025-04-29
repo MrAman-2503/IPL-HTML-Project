@@ -89,9 +89,9 @@
         }
         
         body {
-            /* Updated background-color for a more modern look */
-            background: linear-gradient(135deg, #d3738b, #e4e9ee); /* Darker, more sophisticated gradient */
-            color: #ecf0f1; /* Light text for better contrast on dark background */
+            /* Updated background-color to sky blue and off white */
+            background: linear-gradient(135deg, #87ceeb, #f8f8f8); /* Sky blue to off white gradient */
+            color: #333333; /* Darker text for better contrast */
         }
         .container {
             /* Refined container style */
@@ -124,9 +124,9 @@
 
         .nav-links {
             display: flex;
-            gap: 1rem;
+            gap: 3rem;
             list-style: none;
-            margin: 0;
+            margin: 1rem 0;
             padding: 0;
         }
 
@@ -135,10 +135,11 @@
             text-decoration: none;
             font-weight: 500;
             text-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.5);
-            transition: color 0.3s ease;
+            transition: color 0.15s ease-in-out;
         }
         .nav-links li a:hover {
-            color: #ffdb58;
+            color: #ff0000;
+            transition: color 0.15s ease-in-out;
         }
     </style>
 </head>
@@ -148,17 +149,18 @@
         <h1>Indian Premier League</h1>
     </div>
 </header>
-<div class="nav-container">
-    <nav>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Teams</a></li>
-            <li><a href="#">Schedule</a></li>
-            <li><a href="#">Points Table</a></li>
-            <li><a href="#">About Us</a></li>
-        </ul>
-    </nav>
-</div>
+    <div class="nav-container">
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html" title="Home">Home</a></li>
+                <li><a href="teams.html" title="Teams">Teams</a></li>
+                <li><a href="recent-matches.html" title="Recent Matches">Recent Matches</a></li>
+                <li><a href="schedule.html" title="Schedule">Schedule</a></li>
+                <li><a href="points.html" title="Points Table">Points Table</a></li>
+                <li><a href="about.html" title="About">About Us</a></li>
+            </ul>
+        </nav>
+    </div>
 <div class="transition-container">
     <p class="transition-text">
         Welcome to the ultimate destination for IPL team information.
